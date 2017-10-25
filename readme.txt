@@ -1,9 +1,10 @@
 === Ga Tracking Code ===
 Contributors: francescotaurino
 Tags: google analytics, google, analytics, ga-tracking-code,  statistics, stats, tracking, simple plugin, simple analytics, simple statistics, simple stats, simple, fast, secure, ga analytics
-Requires at least: 3.0
+Requires at least: 3.1.0
 Tested up to: 4.8.2
-Stable tag: 1.1.1
+Requires PHP: 5.3 
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/francescotaurino
@@ -23,6 +24,7 @@ Now your traffic will be shared with your Google Analytics account.
 * Fast performance
 * Includes tracking code in header or footer
 * Inserts tracking code on all WordPress web pages
+* Exclude administrator from tracking
 
 == Installation ==
 
@@ -33,3 +35,11 @@ Enter your tracking ID, and then click Save
 == Changelog ==
 
 View a list of all plugin changes in [CHANGELOG.md](https://plugins.svn.wordpress.org/ga-tracking-code/trunk/CHANGELOG.md).
+
+== Upgrade Notice ==
+
+= 1.2.0 =
+Ga Tracking Code now Requires at least WordPress 3.1.0 and PHP 5.3.
+ 
+= 1.1.0 =
+This version includes a new feature, "Exclude administrator from tracking"

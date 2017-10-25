@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the GA Tracking Code package.
 msgid ""
 msgstr ""
-"Project-Id-Version: GA Tracking Code 1.0.3\n"
+"Project-Id-Version: GA Tracking Code 1.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ga-tracking-code\n"
-"POT-Creation-Date: 2017-10-24 17:25+0200\n"
-"PO-Revision-Date: 2017-10-24 18:10+0200\n"
+"POT-Creation-Date: 2017-10-25 16:23+0200\n"
+"PO-Revision-Date: 2017-10-25 16:28+0200\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Francesco Taurino <dev.francescotaurino@gmail.com>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,56 +15,64 @@ msgstr ""
 "X-Generator: Poedit 1.8.11\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ga-tracking-code.php:200
+#: ga-tracking-code.php:264
+msgid ""
+"GA Tracking Code requires at least WordPress version %s and PHP %s. You are "
+"running version %s on PHP %s. Please upgrade and try again."
+msgstr ""
+"GA Tracking Code richiede almeno WordPress %s e PHP %s. Stai eseguendo la "
+"versione %s su PHP %s. Si prega di aggiornare e riprovare."
+
+#: ga-tracking-code.php:330
 msgid "General Settings"
 msgstr "Impostazioni Generali"
 
-#: ga-tracking-code.php:209
+#: ga-tracking-code.php:339
 msgid "Advanced settings"
 msgstr "Impostazioni avanzate"
 
-#: ga-tracking-code.php:226
+#: ga-tracking-code.php:356
 msgid "Script Location"
 msgstr "Posizione dello script"
 
-#: ga-tracking-code.php:235
+#: ga-tracking-code.php:365
 msgid "Track administrator hits?"
 msgstr "Tracciare l'amministratore?"
 
-#: ga-tracking-code.php:418
+#: ga-tracking-code.php:548
 msgid "Google Analytics Tracking Code"
 msgstr "Codice di monitoraggio di Google Analytics"
 
-#: ga-tracking-code.php:443
+#: ga-tracking-code.php:574
 msgid "Enter your Google Analytics Tracking ID for this website (e.g: %s)."
 msgstr ""
 "Inserisci il Tracking ID di Google Analytics per questo sito (ad esempio: "
 "%s)."
 
-#: ga-tracking-code.php:448
+#: ga-tracking-code.php:579
 msgid ""
 "Tip: If you do not know your Tracking ID, you can use the %s to find it."
 msgstr ""
 "Suggerimento: Se non si conosce il Tracking ID, è possibile utilizzare %s "
 "per trovarlo."
 
-#: ga-tracking-code.php:480
+#: ga-tracking-code.php:611
 msgid "Yes"
 msgstr "Si"
 
-#: ga-tracking-code.php:481
+#: ga-tracking-code.php:612
 msgid "No"
 msgstr "No"
 
-#: ga-tracking-code.php:498
+#: ga-tracking-code.php:629
 msgid "donation"
 msgstr "donazione"
 
-#: ga-tracking-code.php:503
+#: ga-tracking-code.php:634
 msgid "If you find this plugin useful, please consider making a %s."
 msgstr "Se trovi utile questo plugin, considera la possibilità di fare una %s."
 
-#: ga-tracking-code.php:505
+#: ga-tracking-code.php:636
 msgid ""
 "Your donation will help encourage and support the plugin's continued "
 "development and better user support."
@@ -82,9 +90,7 @@ msgstr "https://www.francescotaurino.com/wordpress/ga-tracking-code"
 
 #. Description of the plugin/theme
 msgid "Ga Tracking Code plugin makes Google Analytics tracking easier"
-msgstr ""
-"GA Tracking Code fornisce lo script necessario alla comunicazione tra un "
-"sito web WordPress e Google analytics"
+msgstr "Ga Tracking Code plugin makes Google Analytics tracking easier"
 
 #. Author of the plugin/theme
 msgid "Francesco Taurino"
@@ -93,9 +99,3 @@ msgstr "Francesco Taurino"
 #. Author URI of the plugin/theme
 msgid "https://www.francescotaurino.com"
 msgstr "https://www.francescotaurino.com"
-
-#~ msgid "Exclude Administrator from tracking"
-#~ msgstr "Escludi l'amministratore dal monitoraggio"
-
-#~ msgid "Script Position"
-#~ msgstr "Posizione dello Script"

@@ -1,14 +1,14 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; 
 /**
- * Plugin Name:   GA Tracking Code
- * Plugin URI:    https://www.francescotaurino.com/wordpress/ga-tracking-code
- * Description:   Ga Tracking Code plugin makes Google Analytics tracking easier
- * Author:        Francesco Taurino
- * Author URI:    https://www.francescotaurino.com
- * Version:       1.1.2
- * Text Domain:   ga-tracking-code
- * Domain Path: 	/languages
- * License: 			GPL v3
+ * Plugin Name:		GA Tracking Code
+ * Plugin URI:		https://www.francescotaurino.com/wordpress/ga-tracking-code
+ * Description:		Ga Tracking Code plugin makes Google Analytics tracking easier
+ * Author:				Francesco Taurino
+ * Author URI:		https://www.francescotaurino.com
+ * Version:				1.2.0
+ * Text Domain:		ga-tracking-code
+ * Domain Path:		/languages
+ * License:				GPL v3
  *
  * @package     	Ga_Tracking_Code
  * @author      	Francesco Taurino <dev.francescotaurino@gmail.com>
@@ -32,6 +32,22 @@ if ( !class_exists('Ga_Tracking_Code') ) :
 
 
 	class Ga_Tracking_Code {
+
+
+		/**
+     * Minimum PHP version
+     * 
+     * @const string
+     */
+		const MIN_PHP_VERSION = '5.3';
+
+
+		/**
+     * Minimum WordPress version
+     * 
+     * @const string
+     */
+		const MIN_WP_VERSION = '3.1.0';
 
 
 		/**
@@ -141,16 +157,31 @@ if ( !class_exists('Ga_Tracking_Code') ) :
 		 */
 		private function __construct() {
 			
+			if( !self::meets_requirements() ){
+				
+				// Add a dashboard notice.
+				// all_admin_notices Prints generic admin screen notices.
+				add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
+				
+				// Deactivate GA Tracking Code plugin.
+				// admin_init Fires as an admin screen or script is being initialized.
+				add_action( 'admin_init', array( $this, 'deactivate_plugin' ) );
+				
+				// Didn't meet the requirements.
+				return false;
+
+			}
+
 			$this->options = $this->get_options();
 
 			// This hook is called once any activated plugins have been loaded.
-			add_action('plugins_loaded', array($this, 'plugins_loaded') );
+			add_action('plugins_loaded', array( $this, 'plugins_loaded') );
 
 			// admin_init is triggered before any other hook when a user accesses the admin area.
-			add_action('admin_init', array($this, 'admin_init'));
+			add_action('admin_init', array( $this, 'admin_init'));
 			
 			// This action is used to add extra submenus and menu options to the admin panel's menu structure.
-			add_action('admin_menu', array($this, 'admin_menu'));
+			add_action('admin_menu', array( $this, 'admin_menu'));
 
 			// The script_position value can be `wp_head` or` wp_footer`
 			// The `wp_head` action hook is triggered within the <head></head> section of the user's template by the wp_head() function. 
@@ -158,6 +189,106 @@ if ( !class_exists('Ga_Tracking_Code') ) :
 			// According to the WordPress documentation both functions are theme-dependent 
 			add_action( $this->options['script_position'], array( $this, 'script' ) );
 
+		}
+
+
+		/**
+		 * Check that all plugin requirements are met.
+		 *
+		 * Note:
+		 * 
+		 * since WP 3.1.0
+		 * function: 	submit_button
+		 * action: 		all_admin_notices
+		 * 
+		 * since WP 2.8.0
+		 * function:	esc_html
+		 * function:	esc_attr
+		 * 
+		 * since WP 2.7.0
+		 * function:	register_setting >=WP 4.7.0 `$args` can be passed to set flags on the setting.
+		 * function: 	settings_fields
+		 * function: 	add_settings_field >=WP 4.2.0 The `$class` argument was added.
+		 * function: 	add_settings_section
+		 * function: 	do_settings_sections
+		 * 
+		 * since WP 2.5.0
+		 * action: 		admin_init
+		 * function: 	deactivate_plugins
+		 * 
+		 * since WP 2.0.0
+		 * function:	current_user_can
+		 *
+		 * since WP 1.5.1
+		 * action: 		wp_footer
+		 * 
+		 * since WP 1.5.0
+		 * function:	load_plugin_textdomain
+		 * function:	get_option
+		 * function:	plugin_basename
+		 * action: 		admin_menu
+		 * action: 		wp_head
+		 * 
+		 * since WP 1.0.0
+		 * function:	selected
+		 * 	
+		 * since WP 0.71
+		 * function: 	apply_filters
+		 * 
+		 * @access private
+		 * @static
+		 * 
+		 * @return bool
+		 */
+		private static function meets_requirements() {
+
+			if ( version_compare( phpversion(), self::MIN_PHP_VERSION, '<' ) ) {
+				return false;
+			}
+
+			if ( version_compare( $GLOBALS['wp_version'], self::MIN_WP_VERSION, '<' ) ) {
+				return false;
+			}
+
+			return true;
+		}
+
+
+		/**
+		 * Adds a notice to the dashboard if the plugin requirements are not met.
+		 * 
+		 * @return void
+		 */
+		public function requirements_not_met_notice() {
+
+			// Compile default message.
+			$message = sprintf( __( 'GA Tracking Code requires at least WordPress version %s and PHP %s. You are running version %s on PHP %s. Please upgrade and try again.', 'ga-tracking-code' ), 
+				self::MIN_WP_VERSION,
+				self::MIN_PHP_VERSION,
+				$GLOBALS['wp_version'],
+				phpversion()
+			);
+
+			// Output errors.
+			printf( '<div id="message" class="error"><p>%s</p></div>', esc_html( $message ) );
+
+		}
+
+
+		/**
+		 * Deactivates GA Tracking Code
+		 *
+		 * @return void
+		 */
+		public function deactivate_plugin() {
+			if ( ! function_exists( 'deactivate_plugins' ) ) {
+				return;
+			}
+
+			// We do a check for deactivate_plugins before calling it, to protect
+			// any developers from accidentally calling it too early and breaking things.
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+		
 		}
 
 
