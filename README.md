@@ -1,13 +1,3 @@
-=== Ga Tracking Code ===
-Contributors: francescotaurino
-Tags: google analytics, google, analytics, ga-tracking-code,  statistics, stats, tracking, simple plugin, simple analytics, simple statistics, simple stats, simple, fast, secure, ga analytics
-Requires at least: 3.0
-Tested up to: 4.8.2
-Stable tag: 1.1.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Donate link: https://www.paypal.me/francescotaurino
-
 Ga Tracking Code plugin makes Google Analytics tracking easier.
 
 == Description ==
