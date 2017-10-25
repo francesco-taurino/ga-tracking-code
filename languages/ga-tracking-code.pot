@@ -1,0 +1,84 @@
+# Copyright (C) 2017 GA Tracking Code
+# This file is distributed under the same license as the GA Tracking Code package.
+msgid ""
+msgstr ""
+"Project-Id-Version: GA Tracking Code 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ga-tracking-code\n"
+"POT-Creation-Date: 2017-10-24 15:25:32+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: ga-tracking-code.php:200
+msgid "General Settings"
+msgstr ""
+
+#: ga-tracking-code.php:209
+msgid "Advanced settings"
+msgstr ""
+
+#: ga-tracking-code.php:226
+msgid "Script Location"
+msgstr ""
+
+#: ga-tracking-code.php:235
+msgid "Track administrator hits?"
+msgstr ""
+
+#: ga-tracking-code.php:418
+msgid "Google Analytics Tracking Code"
+msgstr ""
+
+#: ga-tracking-code.php:443
+msgid "Enter your Google Analytics Tracking ID for this website (e.g: %s)."
+msgstr ""
+
+#: ga-tracking-code.php:448
+msgid ""
+"Tip: If you do not know your Tracking ID, you can use the %s to find it."
+msgstr ""
+
+#: ga-tracking-code.php:480
+msgid "Yes"
+msgstr ""
+
+#: ga-tracking-code.php:481
+msgid "No"
+msgstr ""
+
+#: ga-tracking-code.php:498
+msgid "donation"
+msgstr ""
+
+#: ga-tracking-code.php:503
+msgid "If you find this plugin useful, please consider making a %s."
+msgstr ""
+
+#: ga-tracking-code.php:505
+msgid ""
+"Your donation will help encourage and support the plugin's continued "
+"development and better user support."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "GA Tracking Code"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.francescotaurino.com/wordpress/ga-tracking-code"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Ga Tracking Code plugin makes Google Analytics tracking easier"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Francesco Taurino"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.francescotaurino.com"
+msgstr ""
